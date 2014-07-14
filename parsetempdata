@@ -1,0 +1,28 @@
+#include <fstream> 
+#include <iostream> 
+  
+using namespace std; 
+
+int main() { 
+	int i=0;
+	float zahlen[50];
+	float Number;
+	
+	std::ifstream Stream( "myfile.txt" ); 
+    while ( Stream ) { 
+        if ( isdigit( Stream.peek() ) ) { 
+            // Ziffer gefunden, es kommt eine Zahl 
+            Stream >> Number; 
+			zahlen[i]=Number;
+            std::cout << Number << '\n'; 
+			i++;
+
+
+        } 
+        else { 
+            Stream.get(); 
+        } 
+    } 
+	std::cout<<"Hier enden die Zahlen das ist meine Zahl -->\t"<<zahlen[8]<<"\n"<<zahlen[10];
+	getchar();
+}
