@@ -1,0 +1,36 @@
+#include <string>
+#include <fstream>
+#include <iostream> 
+
+
+int main() {
+ifstream Myfile;
+string temp[10];
+string lastupdate;
+string source;
+int i=0;
+
+
+Myfile.open ("Myfile.txt");
+
+if(Myfile.is_open())
+{
+while(!Myfile.eof())
+{
+	//Myfile>>line;
+	getline(Myfile,temp[i]);
+	i++;
+}
+Myfile.close();
+}
+else
+cout<<"Unable to open this file."<<endl;
+
+lastupdate= temp[0];
+source = temp[1];
+cout<<lastupdate<<"\n"<<source;
+
+getchar();
+
+	return 0;
+}
