@@ -1,0 +1,21 @@
+#include "stdafx.h"
+#include <urlmon.h>
+#include <WinInet.h>
+#include <iostream>
+
+
+using namespace std;
+#pragma comment(lib, "urlmon.lib")
+#pragma comment(lib, "Wininet.lib")
+
+
+int main(array<System::String ^> ^args)
+{
+	HRESULT hr = URLDownloadToFile ( NULL, TEXT("http://tk-labor.iem.thm.de/bti-swt-pa-ss14/hochrechnungen.txt"),TEXT("myfile.txt"), 0, NULL );
+	DeleteUrlCacheEntry(TEXT("http://tk-labor.iem.thm.de/bti-swt-pa-ss14/hochrechnungen.txt"));
+
+ 
+    cout<<"Datei Runtergeladen";
+	getchar();
+    return 0;
+}
