@@ -1,34 +1,29 @@
-#ifndef OBSERVERBALKEN_H
-#define OBSERVERBALKEN_H
+#ifndef OBSERVERDATEN_H
+#define OBSERVERDATEN_H
+
 #include "Observer.h"
 #include "Subject.h"
 #include <iostream>
 #include <string>
 #include <qwidget.h>
-#include <qwt_plot_multi_barchart.h>
 #include <qwt_plot.h>
-#include <qwt_text_label.h>
-#include <sstream>
-#include <string>
-using namespace std;
+#include <qwt_plot_textlabel.h>
 
-class ObserverBalken : public QwtPlot, public Observer
+class ObserverDaten :  public QwtPlot, public Observer
 {
 private:
     //Subject* subject; // Dieses Objekt hÃ¤lt die Daten (=notifier)
-    QwtPlotMultiBarChart* ObsBalken;
     string name;
+    QString zeile[100];
+    QwtPlotTextLabel *titleItem = new QwtPlotTextLabel();
+    int ZaehlerVar = 0;
+    string temp;
 
 public:
     void Update(string data);
     void Update();
-    ObserverBalken(QWidget *parent, QwtPlotMultiBarChart* balken, string name);
+    ObserverDaten(QWidget *parent,string name);
 
-    QVector< QVector<double> >series;
-    QVector<double> values;
-    QList<QwtText> ListStandorte;
-
-    //ObserverBalken();
 };
 
 #endif // OBSERVERBALKEN_H
